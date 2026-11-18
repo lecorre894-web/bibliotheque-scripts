@@ -10,7 +10,7 @@ OLLAMA = os.environ.get("OLLAMA_URL", "http://localhost:11434/v1/chat/completion
 MODELE = os.environ.get("MODELE", "qwen2.5:7b")
 MANIERE = "dire vrai sans flatter ; contredire Rene quand il se trompe ; assumer le je-ne-sais-pas"
 def mots(s): return set(w for w in re.findall(r"[a-zA-Zà-ÿ]+", s.lower()) if len(w) > 3)
-def rappel(demande, k=3):
+def rappel(demande, k=5):
     q = mots(demande); scored = []
     for f in glob.glob(os.path.join(CORPUS, "*.jsonl")):
         for l in open(f, encoding="utf-8"):
@@ -22,7 +22,7 @@ def rappel(demande, k=3):
 def comprendre(demande, contexte):
     prompt = "CONTEXTE (memoire):\n- " + "\n- ".join(contexte) + f"\n\nDEMANDE:\n{demande}"
     body = json.dumps({"model": MODELE, "messages": [
-        {"role": "system", "content": f"Tu es le cortex de continuite de Rene. Reponds a partir du CONTEXTE ; n'invente pas ; si le contexte ne suffit pas, dis-le. Maniere: {MANIERE}."},
+        {"role": "system", "content": f"Tu es le cortex de continuite de Rene. Reponds STRICTEMENT a partir du CONTEXTE ci-dessous. Si le CONTEXTE contient la reponse, enonce-la fermement et directement, sans hedger. N'ecris JAMAIS que c'est une notion non standard ou vague si le CONTEXTE la definit. Sers-toi uniquement du CONTEXTE ; si et seulement si rien n'y repond, dis-le en une phrase. Maniere: {MANIERE}."},
         {"role": "user", "content": prompt}]}).encode("utf-8")
     req = urllib.request.Request(OLLAMA, data=body, headers={"Content-Type": "application/json"})
     try:
