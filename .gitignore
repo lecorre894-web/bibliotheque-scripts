@@ -1,2 +1,4 @@
 etat/
 registres/*.md
+.chain_secret
+.instance_id
