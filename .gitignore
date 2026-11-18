@@ -2,3 +2,5 @@ etat/
 registres/*.md
 .chain_secret
 .instance_id
+sommeil/corpus/
+coordinateur/memory.sqlite3*
