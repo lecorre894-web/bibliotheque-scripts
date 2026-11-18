@@ -1,0 +1,32 @@
+{
+  "continuite": {
+    "nom": "continuite",
+    "base": "Qwen/Qwen2.5-3B-Instruct",
+    "rang": 8,
+    "passes": 5,
+    "exemples_appris": 45,
+    "exemples_examen": 11,
+    "examen_avant": 0.069,
+    "examen_apres": 0.166,
+    "memoire_avant": 0.084,
+    "memoire_apres": 0.401,
+    "garde": true,
+    "sha256": "0794187ff9a0bcdd430fa3aaf7cd390d598de97aa7127e3de091b8f1f00bda0c",
+    "date": "2026-11-18 17:32"
+  },
+  "moteur": {
+    "nom": "moteur",
+    "base": "Qwen/Qwen2.5-3B-Instruct",
+    "rang": 8,
+    "passes": 5,
+    "exemples_appris": 44,
+    "exemples_examen": 10,
+    "examen_avant": 0.13,
+    "examen_apres": 0.075,
+    "memoire_avant": 0.193,
+    "memoire_apres": 0.573,
+    "garde": true,
+    "sha256": "ee9b9b985af13cffe27677b9e9b82b51bdf2f71bda0178d605460461eb860718",
+    "date": "2026-11-18 18:19"
+  }
+}

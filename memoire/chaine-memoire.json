@@ -18,5 +18,60 @@
     "instance_id": "rene-758eef06",
     "sceau": "7bcb92a12076c89916b53bb62a71794ac390da1945a03f19be1b0ef2b9a330e3",
     "sig": "655d2578278c1d98732814ca093d8ded4457b3f410851877cafef10d6b0a2c9d"
+  },
+  {
+    "index": 2,
+    "horodatage": "2026-11-18T17:27:01+01:00",
+    "prev_hash": "7bcb92a12076c89916b53bb62a71794ac390da1945a03f19be1b0ef2b9a330e3",
+    "titre": "session",
+    "resume": "lobe continuite base=Qwen/Qwen2.5-3B-Instruct rang=8 sha256=22b62624e91e01692affd3d5bb0eb2d143042c5ee63e01e47a7cf4c5284147da examen avant=7% apres=8%",
+    "maniere": "dire vrai sans flatter ; contredire René quand il se trompe ; le prendre pour une intelligence ; penser AVEC lui ; assumer le « je ne sais pas »",
+    "instance_id": "rene-758eef06",
+    "sceau": "d67f97a03c58b96213a82642017c7d5ec39b3aeef90d4b986a7852098c038794",
+    "sig": "45577a82571780cc188816541fb0d87ba0ebf7ebccb10d2849017b0f9f9e5d8f"
+  },
+  {
+    "index": 3,
+    "horodatage": "2026-11-18T17:32:54+01:00",
+    "prev_hash": "d67f97a03c58b96213a82642017c7d5ec39b3aeef90d4b986a7852098c038794",
+    "titre": "session",
+    "resume": "lobe continuite base=Qwen/Qwen2.5-3B-Instruct rang=8 passes=5 sha256=0794187ff9a0bcdd430fa3aaf7cd390d598de97aa7127e3de091b8f1f00bda0c memoire 8%->40% jamais-vus 7%->17% GARDE",
+    "maniere": "dire vrai sans flatter ; contredire René quand il se trompe ; le prendre pour une intelligence ; penser AVEC lui ; assumer le « je ne sais pas »",
+    "instance_id": "rene-758eef06",
+    "sceau": "d93dd9cfb9ed5e8fd1abd3b87aee8ac5c0c9631bf152dbd39d8e09ee2e260b45",
+    "sig": "02fb157e6ee205c86ff93236bbe2a42f6fb19ecf45ce926198023c1c2cd32f2b"
+  },
+  {
+    "index": 4,
+    "horodatage": "2026-11-18T17:53:44+01:00",
+    "prev_hash": "d93dd9cfb9ed5e8fd1abd3b87aee8ac5c0c9631bf152dbd39d8e09ee2e260b45",
+    "titre": "session",
+    "resume": "lobe continuite2 sha256=94764098007bcfd4b9cfc05934cc1a291672ec85ce00bd6872110f2bc369db16 corpus=9 moyenne 0%->9% GARDE",
+    "maniere": "dire vrai sans flatter ; contredire René quand il se trompe ; le prendre pour une intelligence ; penser AVEC lui ; assumer le « je ne sais pas »",
+    "instance_id": "rene-758eef06",
+    "sceau": "45bd217e4e29fd188f09fffc9732ebfbfda3c55a87516a01973bc1f912b2ab50",
+    "sig": "d037c4cd2d8107a591309eb104bd89d47d4ab2e4482ce3c0d9067eeb55ca27ec"
+  },
+  {
+    "index": 5,
+    "horodatage": "2026-11-18T17:55:11+01:00",
+    "prev_hash": "45bd217e4e29fd188f09fffc9732ebfbfda3c55a87516a01973bc1f912b2ab50",
+    "titre": "session",
+    "resume": "CORRECTION du bloc 4 : verdict continuite2 INVALIDE (bug de lecture de la graine, examens vides, score sur exemples deja appris). Lobe retire de l'index.",
+    "maniere": "dire vrai sans flatter ; contredire René quand il se trompe ; le prendre pour une intelligence ; penser AVEC lui ; assumer le « je ne sais pas »",
+    "instance_id": "rene-758eef06",
+    "sceau": "61426894dde7b309b0fa2315c2d515d69261dcb80b37aedb36c86ecf8823df63",
+    "sig": "393e59d778a38516bc378a9a8de2cdffd3e8d390cadccb970a5bcbf175e75ca0"
+  },
+  {
+    "index": 6,
+    "horodatage": "2026-11-18T18:19:42+01:00",
+    "prev_hash": "61426894dde7b309b0fa2315c2d515d69261dcb80b37aedb36c86ecf8823df63",
+    "titre": "session",
+    "resume": "lobe moteur base=Qwen/Qwen2.5-3B-Instruct rang=8 passes=5 sha256=ee9b9b985af13cffe27677b9e9b82b51bdf2f71bda0178d605460461eb860718 memoire 19%->57% jamais-vus 13%->8% GARDE",
+    "maniere": "dire vrai sans flatter ; contredire René quand il se trompe ; le prendre pour une intelligence ; penser AVEC lui ; assumer le « je ne sais pas »",
+    "instance_id": "rene-758eef06",
+    "sceau": "ef34e3464889846b18a4d8505acda27c0949560bb38fbe60b437d7525bc78ad8",
+    "sig": "93de5bb18d1e223f271ef647a100fd508542437cb6946ab12c6124f543f54115"
   }
 ]
