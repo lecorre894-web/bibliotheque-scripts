@@ -4,3 +4,6 @@ registres/*.md
 .instance_id
 sommeil/corpus/
 coordinateur/memory.sqlite3*
+.venv-sommeil/
+claude/.claude_secret
+claude/.claude_instance
