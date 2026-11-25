@@ -1,4 +1,4 @@
-# 📺 René TV — v4.7
+# 📺 René TV — v4.9.3
 
 **La télé, la vidéo et la radio du monde entier dans une seule appli Windows, gratuite et sans publicité.**
 Image restaurée en direct par IA, fluidité 240 Hz, son travaillé pour les petits haut-parleurs.
@@ -34,6 +34,18 @@ FFmpeg tourne en arrière-plan sans fenêtre et renvoie la vidéo traitée à Re
 
 Les niveaux IA renforcent aussi le déblocage des zones sombres. Calcul sur la carte graphique (Vulkan/libplacebo) et encodage NVENC sur NVIDIA. Si quelque chose ne suit pas, René TV redescend tout seul d'un cran puis revient au flux d'origine, avec un message en bas de l'écran. Les films des années 80 retrouvent une image propre.
 
+**Retouche photo (avec le Traitement FFmpeg)**
+- **Style** : Naturel, Film restauré, Ciné moderne, Vintage chaud, Portrait doux.
+- **Lissage** (flou de surface), **Netteté CAS**, **Clarté**, **Vibrance**, **Balance des blancs auto**.
+- **Ma LUT / ma courbe Photoshop** : dépose `ma.cube` (LUT 3D) et/ou `ma.acv` (Courbes Photoshop) dans `%LOCALAPPDATA%\ReneTV` (bouton « Dossier »).
+- **Finale NVIDIA RTX VSR** : l'IA s'arrête en 1440p et la super-résolution RTX de la carte termine en 4K (coupe la Fluidité, à régler aussi dans le panneau NVIDIA).
+
+**Télécommande (téléphone sur le même Wi-Fi)**
+- Dans René TV : Son & image → 📱 Télécommande affiche l'adresse **et un QR code** propres à ton PC (code personnel à 4 chiffres).
+- Page HTML5 sur le téléphone : touches CH/volume/pavé, menus Fluidité/FFmpeg/Style, sommeil, et **toutes les chaînes et radios en mosaïque avec logos**, recherche, la chaîne en cours entourée.
+- Version Termux (Android) : commande `rtv` avec logos dessinés dans le terminal (voir `telecommande-termux/`).
+- Astuce lit/canapé : partage de connexion **en Wi-Fi** (point d'accès) plutôt qu'en USB, le téléphone reste en main.
+
 **Son (Web Audio)**
 Synchro lèvres, voix centrale renforcée, largeur stéréo, égaliseur 10 bandes, sonie constante (plus de pubs qui hurlent), mode nuit, grave virtuel pour petits haut-parleurs d'écran, limiteur.
 
@@ -65,7 +77,8 @@ L'installeur fait tout seul, dans l'ordre :
 3. **FFmpeg** pour Windows (`winget install Gyan.FFmpeg`, build complète gratuite avec libplacebo et Vulkan) ;
 4. les modèles IA **FSRCNNX** ×2 (8 et 16), téléchargés depuis leur dépôt officiel et vérifiés par empreinte SHA-256, rangés dans `%LOCALAPPDATA%\ReneTV` ;
 5. les sources de René TV (contenues dans l'installeur, vérifiées par empreintes) dans `~/rene-tv` — une ancienne installation est mise de côté, jamais effacée ;
-6. la fabrication de l'appli Windows dans `%USERPROFILE%\Applications-Rene\Rene-TV-win32-x64` et le raccourci du Bureau.
+6. la fabrication de l'appli Windows dans `%USERPROFILE%\Applications-Rene\Rene-TV-win32-x64` et le raccourci du Bureau ;
+7. la règle de pare-feu pour la télécommande (une fenêtre administrateur Windows : clique Oui).
 
 Relancer l'installeur répare ou met à jour sans rien perdre.
 
@@ -93,6 +106,7 @@ Coche **Diagnostic fluidité** pour voir les images par seconde réellement affi
 | Déchirures autour des objets qui bougent | Coche « Fluidité : bords prudents » |
 | Coupures image/son | Redescends d'un cran (IA Max → Fort + IA → Fort) |
 | 2 à 5 s d'attente au zapping | Normal avec FFmpeg activé (préparation du flux) |
+| Télécommande injoignable | Même Wi-Fi ? Prends l'adresse 10.x / 192.168.x (pas 172.x = WSL) ; relance l'installeur pour la règle pare-feu |
 | Une chaîne ne marche pas | Les flux publics changent souvent : zappe ou « Ouvrir dans VLC » |
 
 ---
@@ -106,12 +120,14 @@ Coche **Diagnostic fluidité** pour voir les images par seconde réellement affi
 - **v4.5.1** : IA Max FSRCNNX 16.
 - **v4.6** : version complète — IA 8K → 4K, anti-blocs des zones sombres, bords prudents, étiquette Qualité flux, réglages par défaut MAX 240 Hz + Fort + IA.
 - **v4.7** : Fluidité « MAX intégré » (240 Hz + IA 8K → 4K + bords prudents en un clic).
+- **v4.8** : Retouche photo (styles, CAS, Clarté, Vibrance, LUT .cube / Courbes .acv Photoshop) + Finale NVIDIA RTX VSR.
+- **v4.9 → v4.9.3** : télécommande téléphone (HTML5 avec mosaïque de toutes les chaînes, Termux `rtv`), QR code.
 
 ---
 
 ## ⚖️ Licences et crédits
 
-René TV n'embarque que son propre code et **hls.js** (Apache-2.0). Ces logiciels sont téléchargés depuis leur source officielle :
+René TV n'embarque que son propre code, **hls.js** (Apache-2.0) et **qrcode-generator** (MIT, Kazuhiko Arase). Ces logiciels sont téléchargés depuis leur source officielle :
 
 - **FFmpeg** (GPL, build gyan.dev) ;
 - **FSRCNNX** (GPL-3.0, igv / FSRCNN-TensorFlow) ;
