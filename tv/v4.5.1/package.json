@@ -1,0 +1,1 @@
+{"name":"rene-tv","version":"3.0.0","main":"main.js","private":true,"dependencies":{"hls.js":"^1.7.4"},"devDependencies":{"electron":"^45.4.1"}}
