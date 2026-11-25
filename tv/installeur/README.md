@@ -1,4 +1,4 @@
-# 📺 René TV — v4.5.1
+# 📺 René TV — v4.7
 
 **La télé, la vidéo et la radio du monde entier dans une seule appli Windows, gratuite et sans publicité.**
 Image restaurée en direct par IA, fluidité 240 Hz, son travaillé pour les petits haut-parleurs.
@@ -17,6 +17,8 @@ Conçu par **René Le Corre** (AISA), codé avec Claude (Anthropic) — 2026.
 - Interpolation d'images par flux optique sur la carte graphique : une chaîne à 25/50 i/s est affichée jusqu'à **240 Hz** sur un écran rapide.
 - Désentrelacement, netteté, éclat (contraste + couleurs), grain, luminosité/contraste/saturation.
 - Réglage automatique de la résolution d'analyse (480 → 1280 px) selon la puissance disponible.
+- **Bords prudents** (anti-déchirures) : sur les contours des objets qui bougent, fondu doux au lieu de pixels déchirés.
+- **MAX intégré** : un seul choix règle tout — 240 Hz + IA 8K → 4K + bords prudents.
 
 **Image — Traitement FFmpeg (invisible, l'image ne quitte jamais René TV)**
 FFmpeg tourne en arrière-plan sans fenêtre et renvoie la vidéo traitée à René TV par un petit serveur interne (127.0.0.1).
@@ -28,8 +30,9 @@ FFmpeg tourne en arrière-plan sans fenêtre et renvoie la vidéo traitée à Re
 | Fort | même chose, plus appuyé — idéal pour les vieux films et les flux compressés |
 | Fort + IA | Fort + agrandissement IA **FSRCNNX ×2** (720p → 1440p, 1080p → 4K) |
 | IA Max | même chose avec le modèle **FSRCNNX 16**, deux fois plus riche |
+| IA 8K → 4K | deux passes IA jusqu'en 8K puis suréchantillonnage en 4K — très lourd (RTX 4080 conseillée) |
 
-Calcul sur la carte graphique (Vulkan/libplacebo) et encodage NVENC sur NVIDIA. Si quelque chose ne suit pas, René TV redescend tout seul d'un cran puis revient au flux d'origine, avec un message en bas de l'écran. Les films des années 80 retrouvent une image propre.
+Les niveaux IA renforcent aussi le déblocage des zones sombres. Calcul sur la carte graphique (Vulkan/libplacebo) et encodage NVENC sur NVIDIA. Si quelque chose ne suit pas, René TV redescend tout seul d'un cran puis revient au flux d'origine, avec un message en bas de l'écran. Les films des années 80 retrouvent une image propre.
 
 **Son (Web Audio)**
 Synchro lèvres, voix centrale renforcée, largeur stéréo, égaliseur 10 bandes, sonie constante (plus de pubs qui hurlent), mode nuit, grave virtuel pour petits haut-parleurs d'écran, limiteur.
@@ -72,8 +75,8 @@ Relancer l'installeur répare ou met à jour sans rien perdre.
 
 Bouton **Son & image** :
 
-- **Fluidité** : MAX (240 Hz écran) si ton écran le permet ;
-- **Traitement FFmpeg** : Fort + IA (ou IA Max si la carte suit) ;
+- Au premier lancement : Fluidité MAX 240 Hz + Fort + IA, déjà réglés ;
+- carte puissante : Fluidité **MAX intégré** ;
 - **Haut-parleurs** : Écran (petits HP) si tu écoutes sur l'écran ;
 - **Sonie constante** : cochée.
 
@@ -86,7 +89,8 @@ Coche **Diagnostic fluidité** pour voir les images par seconde réellement affi
 | Symptôme | Remède |
 |---|---|
 | « FFmpeg indisponible — flux original » | Rouvre Ubuntu et relance l'installeur, ou dans Windows : `winget install -e --id Gyan.FFmpeg` |
-| « IA Max trop lourde — Fort + IA » | Normal : la carte ne suit pas, René TV a choisi le cran en dessous |
+| « Niveau IA trop lourd — redescendu en … » | Normal : la carte ne suit pas, René TV a choisi le cran en dessous |
+| Déchirures autour des objets qui bougent | Coche « Fluidité : bords prudents » |
 | Coupures image/son | Redescends d'un cran (IA Max → Fort + IA → Fort) |
 | 2 à 5 s d'attente au zapping | Normal avec FFmpeg activé (préparation du flux) |
 | Une chaîne ne marche pas | Les flux publics changent souvent : zappe ou « Ouvrir dans VLC » |
@@ -99,7 +103,9 @@ Coche **Diagnostic fluidité** pour voir les images par seconde réellement affi
 - **v4.1 / v4.2** : réglage automatique de l'analyse jusqu'à 1280 px.
 - **v4.3** : Traitement FFmpeg invisible (Doux / Fort), NVENC, repli automatique.
 - **v4.4** : IA FSRCNNX ×2 (libplacebo / Vulkan).
-- **v4.5.1** : IA Max FSRCNNX 16 (le passage 8K → 4K a été abandonné : trop lourd en direct).
+- **v4.5.1** : IA Max FSRCNNX 16.
+- **v4.6** : version complète — IA 8K → 4K, anti-blocs des zones sombres, bords prudents, étiquette Qualité flux, réglages par défaut MAX 240 Hz + Fort + IA.
+- **v4.7** : Fluidité « MAX intégré » (240 Hz + IA 8K → 4K + bords prudents en un clic).
 
 ---
 
